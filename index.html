@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Hidrostática</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <main>
+        <h1 class="titulo-principal">Cálculo de Fuerza Hidrostática en Compuertas</h1>
+        <div class="contenedor-grid">
+
+            <section class="panel-datos">
+                <div class="encabezado-seccion">
+                    <h3>Parámetros del Embalse</h3>
+                    <span class="badge">Placa Plana</span>
+                </div>
+                
+                <div class="grupo-input">
+                    <label>Profundidad al borde superior (h₁)</label>
+                    <span class="subtitulo">Distancia vertical desde la lámina libre hasta la cresta de la compuerta</span>
+                    <input type="number" id="profundidad" placeholder="Ej: 2.5">
+                </div>
+                
+                <div class="grupo-input">
+                    <label>Altura de la compuerta (a)</label>
+                    <span class="subtitulo">Dimensión vertical de la placa plana en contacto hidrostático</span>
+                    <input type="number" id="altura" placeholder="Ej: 4.0">
+                </div>
+                
+                <div class="grupo-input">
+                    <label>Ancho de la compuerta (b)</label>
+                    <span class="subtitulo">Dimensión ortogonal al plano de corte sometida a la presión del fluido</span>
+                    <input type="number" id="ancho" placeholder="Ej: 3.0">
+                </div>
+                
+                <div class="caja-constantes">
+                    <div class="titulo-constantes"> CONSTANTES APLICADAS</div>
+                    <div class="grid-constantes">
+                        <div>
+                            <span class="label-constante">Densidad (ρ)</span>
+                            <strong>1000 kg/m³</strong>
+                        </div>
+                        <div>
+                            <span class="label-constante">Gravedad (g)</span>
+                            <strong>9.81 m/s²</strong>
+                        </div>
+                    </div>
+                </div>
+                
+                <button onclick="calcularFuerza()">Calcular Fuerza Hidrostática</button>
+            </section>
+
+            <section class="panel-resultados">
+                <div class="encabezado-seccion">
+                    <h3>Planteamiento y Resultado</h3>
+                    <span class="badge">Modelo Analítico</span>
+                </div>
+                <div class="formula">
+                  <img src="formulacion.jfif" alt="Fórmulas de Fuerza Hidrostática y Centro de Presión" class="imagen-formula">
+              </div>
+                
+                <div class="grid-resultados">
+                    <div class="tarjeta-resultado">
+                        <div class="header-resultado">
+                            <span>FUERZA HIDROSTÁTICA TOTAL (F)</span>
+                            <span class="badge badge-azul">Carga Neta</span>
+                        </div>
+                        <div class="valor-destacado">
+                            <span id="resultadoFuerza">0.00</span> <span class="unidad">kN</span>
+                        </div>
+                    </div>
+
+                    <div class="tarjeta-resultado">
+                        <div class="header-resultado">
+                            <span>PUNTO DE APLICACIÓN (Y_CP)</span>
+                            <span class="badge badge-verde">Bajo Centroide</span>
+                        </div>
+                        <div class="valor-destacado">
+                            <span id="resultadoYcp">0.00</span> <span class="unidad">m</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
